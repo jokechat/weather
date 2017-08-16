@@ -1,0 +1,19 @@
+{
+    "name": "jokechat/weather",
+    "description": "心知天气接口",
+    "type": "library",
+    "require": {
+        "mashape/unirest-php": "^3.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "jokechat",
+            "email": "jokechat@qq.com"
+        }
+    ],
+    "autoload" : {
+        "psr-4" : {"Weather\\": "src"}
+    },
+    "minimum-stability": "dev"
+}

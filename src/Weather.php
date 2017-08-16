@@ -10,6 +10,20 @@ use Unirest\Request;
  */
 class Weather
 {
+
+    private function sign()
+    {
+        $config     = Config::getConfig();
+        $sign_param  = [
+            'ts'   =>time(),
+            'ttl'  => 300,
+            'uid'  => $config['uid']
+        ];
+        $sign_data  = http_build_query($sign_param);
+        $sign       = base64_encode(hash_hmac('sha1',$sign_data,$config['api_key'],true));
+        return $sign;
+    }
+
     /**
      * 获取指定城市的天气实况
      * @param $location
@@ -33,7 +47,8 @@ class Weather
             'key'       => $config['api_key'],
             'language'  => $language,
             'unit'      => $unit,
-            'location'  => $location
+            'location'  => urlencode($location),
+            'sign'      =>$this->sign()
         ];
         $result     = Request::get($url,null,$params);
         return json_decode($result->raw_body,true);

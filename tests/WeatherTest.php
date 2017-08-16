@@ -12,7 +12,7 @@ class WeatherTest extends PHPUnit_Framework_TestCase
     public function testNow()
     {
         $weather    = new Weather();
-        $info       = $weather->now(urlencode("北京"));
+        $info       = $weather->now("北京");
         $this->assertArrayHasKey('results', $info);
     }
 }

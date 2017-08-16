@@ -3,7 +3,8 @@
     "description": "心知天气接口",
     "type": "library",
     "require": {
-        "mashape/unirest-php": "^3.0"
+        "mashape/unirest-php": "^3.0",
+        "satooshi/php-coveralls": "^1.0"
     },
     "license": "MIT",
     "authors": [
